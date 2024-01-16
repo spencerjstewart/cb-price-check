@@ -1,0 +1,19 @@
+{
+  "name": "cb-price-check",
+  "version": "0.0.1",
+  "description": "Price check app for Complete Book",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencerjstewart/cb-price-check.git"
+  },
+  "author": "Spencer Stewart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spencerjstewart/cb-price-check/issues"
+  },
+  "homepage": "https://github.com/spencerjstewart/cb-price-check#readme"
+}
