@@ -1,10 +1,9 @@
 name: ElectronJS CI
 
 on:
-  pull_request:
-    types: [ closed ]
+  push:
     branches:
-      - release
+      - main
 
 jobs:
   build-and-test-mac:
