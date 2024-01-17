@@ -56,9 +56,9 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Build and Package on Windows
-        run: npm run make
+        run: npm run win:make
       - name: Upload Windows Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: windows-app
-          path: out/make/*-win32-*
+          path: dist/*.exe
