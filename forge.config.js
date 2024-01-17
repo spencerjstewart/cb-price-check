@@ -1,30 +1,30 @@
 module.exports = {
   packagerConfig: {
     asar: true,
+    // Additional packager configurations can be added here
   },
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
-      config: {},
+      name: "@electron-forge/maker-squirrel",
+      config: {
+        name: "price-check-app", // replace with your app's name
+        // Additional Squirrel.Windows configurations
+      },
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
+      name: "@electron-forge/maker-zip",
+      platforms: ["darwin"],
     },
     {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
+      // Add maker for Windows zip if you plan to have a portable version
+      name: "@electron-forge/maker-zip",
+      platforms: ["win32"],
     },
   ],
   plugins: [
     {
-      name: '@electron-forge/plugin-auto-unpack-natives',
-      config: {},
+      name: "@electron-forge/plugin-auto-unpack-natives",
     },
   ],
 };

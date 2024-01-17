@@ -1,0 +1,64 @@
+name: ElectronJS CI
+
+on:
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
+
+jobs:
+  build-and-test-mac:
+    if: github.event.pull_request.merged == true
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache Node modules (macOS)
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: macos-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            macos-node-
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.11.0'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Build and Package on macOS
+        run: npm run make
+      - name: Upload macOS Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: mac-app
+          path: out/make/*-darwin-*
+
+  build-and-test-windows:
+    if: github.event.pull_request.merged == true
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache Node modules (Windows)
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: windows-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            windows-node-
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.11.0'
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Build and Package on Windows
+        run: npm run make
+      - name: Upload Windows Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: windows-app
+          path: out/make/*-win32-*
