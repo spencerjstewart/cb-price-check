@@ -1,5 +1,5 @@
 {
-  "name": "cb-price-check",
+  "name": "price-check-app",
   "version": "0.0.1",
   "description": "Price check app for Complete Book",
   "main": "main.js",

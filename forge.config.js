@@ -1,15 +1,13 @@
 module.exports = {
   packagerConfig: {
     asar: true,
-    // Additional packager configurations can be added here
   },
   rebuildConfig: {},
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
       config: {
-        name: "price-check-app", // replace with your app's name
-        // Additional Squirrel.Windows configurations
+        name: "price-check-app",
       },
     },
     {
@@ -25,6 +23,7 @@ module.exports = {
   plugins: [
     {
       name: "@electron-forge/plugin-auto-unpack-natives",
+      config: {},
     },
   ],
 };
