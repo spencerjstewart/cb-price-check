@@ -33,10 +33,6 @@ jobs:
         with:
           name: mac-app
           path: out/make/*-darwin-*
-      - name: Semantic release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-test-windows:
     if: github.event.pull_request.merged == true
@@ -65,3 +61,19 @@ jobs:
         with:
           name: windows-app
           path: dist/*.exe
+
+  semantic-release:
+    needs: [ build-and-test-mac, build-and-test-windows ]
+    runs-on: ubuntu-latest
+    # This job will run only if both build-and-test-mac and build-and-test-windows succeed
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.11.0'
+      - name: Semantic release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
