@@ -12,6 +12,10 @@
     {
       "name": "release/*",
       "prerelease": "release"
+    },
+    {
+      "name": "chore/*",
+      "prerelease": "chore"
     }
   ],
   "plugins": [
