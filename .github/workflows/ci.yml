@@ -54,6 +54,8 @@ jobs:
         run: npm test
       - name: Build and Package on Windows
         run: npm run make:win
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Upload Windows Artifacts
         uses: actions/upload-artifact@v4
         with:
