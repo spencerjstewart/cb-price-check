@@ -9,16 +9,16 @@ jobs:
   build-and-test-mac:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Cache Node modules (macOS)
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: macos-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             macos-node-
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20.11.0'
       - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
       - name: Build and Package on macOS
         run: npm run make
       - name: Upload macOS Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: mac-app
           path: out/make/*-darwin-*
@@ -36,16 +36,16 @@ jobs:
   build-and-test-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Cache Node modules (Windows)
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: windows-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             windows-node-
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20.11.0'
       - name: Install dependencies
@@ -55,7 +55,7 @@ jobs:
       - name: Build and Package on Windows
         run: npm run make:win
       - name: Upload Windows Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: windows-app
           path: dist/*.exe
@@ -66,9 +66,9 @@ jobs:
     # This job will run only if both build-and-test-mac and build-and-test-windows succeed
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20.11.0'
       - name: Semantic release
