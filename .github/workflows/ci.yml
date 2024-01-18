@@ -7,7 +7,6 @@ on:
 
 jobs:
   build-and-test-mac:
-    if: github.event.pull_request.merged == true
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,7 +34,6 @@ jobs:
           path: out/make/*-darwin-*
 
   build-and-test-windows:
-    if: github.event.pull_request.merged == true
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
