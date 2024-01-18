@@ -1,7 +1,7 @@
 {
-  "name": "price-check-app",
+  "name": "electronjs-template",
   "version": "0.0.0",
-  "description": "Price check app for Complete Book",
+  "description": "Template for creating Electron apps",
   "main": "main.js",
   "scripts": {
     "test": "jest",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spencerjstewart/cb-price-check.git"
+    "url": "git+https://github.com/spencerjstewart/electronjs-template"
   },
   "author": "Spencer Stewart",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/spencerjstewart/cb-price-check/issues"
+    "url": "https://github.com/spencerjstewart/electronjs-template/issues"
   },
-  "homepage": "https://github.com/spencerjstewart/cb-price-check#readme",
+  "homepage": "https://github.com/spencerjstewart/electronjs-template#readme",
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-angular": "^18.4.4",

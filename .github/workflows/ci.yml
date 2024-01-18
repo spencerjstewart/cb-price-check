@@ -1,4 +1,4 @@
-name: ElectronJS CI
+name: Electron Template CI
 
 on:
   push:
