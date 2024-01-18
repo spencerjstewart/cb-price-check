@@ -53,7 +53,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Build and Package on Windows
-        run: npm run win:make
+        run: npm run make:win
       - name: Upload Windows Artifacts
         uses: actions/upload-artifact@v2
         with:
