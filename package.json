@@ -1,6 +1,6 @@
 {
   "name": "price-check-app",
-  "version": "0.1.0",
+  "version": "semantic-release",
   "description": "Price check app for Complete Book",
   "main": "main.js",
   "scripts": {
