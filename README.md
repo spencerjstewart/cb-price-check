@@ -1,4 +1,4 @@
-# cb-price-check
+# Electron Template
 
 ## Commit Message Format
 We use Angular's commit message format. This is enforced by `commitlint` and `husky`.
